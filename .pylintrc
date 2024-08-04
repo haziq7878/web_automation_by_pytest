@@ -1,0 +1,12 @@
+[MASTER]
+init-hook='import sys; sys.path.extend([".venv/lib/python3.11/site-packages"])'
+max-line-length = 120
+
+[MESSAGES CONTROL]
+disable = C0111,  # missing-docstring
+          C0103,  # invalid-name
+          R0903,  # too-few-public-methods
+          R0913  # too-many-arguments
+
+[FORMAT]
+indent-string = '    '

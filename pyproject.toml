@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "web-automation-by-pytest"
+version = "0.1.0"
+description = ""
+authors = ["haziq7878 <63796888+haziq7878@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pyleniumio = "^1.21.0"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.1.0"
+autopep8 = "^2.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
