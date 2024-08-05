@@ -6,7 +6,10 @@ max-line-length = 120
 disable = C0111,  # missing-docstring
           C0103,  # invalid-name
           R0903,  # too-few-public-methods
-          R0913  # too-many-arguments
+          R0913,  # too-many-arguments
+          W0621,
+          W1508,
+          W0201
 
 [FORMAT]
 indent-string = '    '

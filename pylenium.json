@@ -5,7 +5,20 @@
     "wait_time": 10,
     "page_load_wait_time": 0,
     "options": [],
-    "capabilities": {},
+    "capabilities": {
+      "browserName": "Chrome",
+      "browserVersion": "126",
+      "LT:Options": {
+        "username": "testersilver3",
+        "accessKey": "rvo8eX9vFh69phyFqgLMh2qvqCPDQNZ5hsVFDFn4UXulw0bN0P",
+        "video": true,
+        "platformName": "Windows 10",
+        "build": "test",
+        "project": "testing",
+        "w3c": true,
+        "plugin": "python-pytest"
+      }
+    },
     "experimental_options": null,
     "extension_paths": [],
     "webdriver_kwargs": {},
