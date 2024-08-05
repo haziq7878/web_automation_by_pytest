@@ -1,6 +1,7 @@
 from enum import Enum
-import pytest
-from pylenium.driver import Pylenium, Element, Elements
+from pylenium.driver import Element, Elements
+from src.pages.basePage import BasePage
+from src.pages.form import FormComponent
 
 
 class Options(Enum):
@@ -11,21 +12,22 @@ class Options(Enum):
     FIFTH_ITEM = "Fifth Item"
 
 
-class TodoPage:
-    def __init__(self, py: Pylenium) -> None:
-        self.py = py
+class TodoPage(BasePage):
+    CONTAINER: str = ".container"
+    TODO_INPUT_OPTIONS = "li[ng-repeat*='sampletodo'] > input"
+    FORM = "form[ng-submit]"
 
     def goto(self) -> "TodoPage":
         self.py.visit("https://lambdatest.github.io/sample-todo-app")
         return self
 
     def get_todo_by_name(self, name: Options) -> Element:
-        return self.py.getx(f"//span[text()='{name.value}']/preceding-sibling::input")
+        parent_element = self.UNIQUE_ELEMENT().getx(
+            f"//span[text()='{name.value}']/preceding-sibling::input").parent()
+        return parent_element.get("input")
 
     def get_all_todos(self) -> Elements:
-        return self.py.find("li[ng-repeat*='sampletodo']")
+        return self.UNIQUE_ELEMENT().find(self.TODO_INPUT_OPTIONS)
 
-
-@pytest.fixture
-def page(py: Pylenium):
-    return TodoPage(py).goto()
+    def get_submit_form(self) -> "FormComponent":
+        return FormComponent(self.py, self.FORM)
